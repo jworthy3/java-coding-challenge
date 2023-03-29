@@ -18,10 +18,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-@SuppressWarnings("DataFlowIssue")
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ReportingStructureServiceImplTest {
+public class EmployeeServiceImplReportingStructureTest {
 
     private String employeeUrl;
     private String reportingStructureIdUrl;
@@ -35,7 +34,7 @@ public class ReportingStructureServiceImplTest {
     @Before
     public void setup() {
         employeeUrl = "http://localhost:" + port + "/employee";
-        reportingStructureIdUrl = "http://localhost:" + port + "/reporting-structure/{employeeId}";
+        reportingStructureIdUrl = "http://localhost:" + port + "/employee/{id}/reporting-structure";
     }
 
     @Test
