@@ -1,3 +1,35 @@
+# Solution Details
+
+## Endpoints Created
+### ReportingStructure
+```
+* HTTP Method: GET
+* URL: localhost:8080/employee/{id}/reporting-structure
+* Response: ReportingStructure
+```
+
+### Compensation
+```
+* CREATE
+    * HTTP Method: POST
+    * URL: localhost:8080/compensation
+    * PAYLOAD: Compensation
+    * RESPONSE: Compensation
+* READ
+    * HTTP Method: GET
+    * URL: localhost:8080/compensation
+    * PAYLOAD:
+        * employeeId = {employeeId} -- optional url param
+    * RESPONSE: Compensation Collection/Array
+```
+     
+## Implementation Details
+### Assumptions Made
+  * A `ReportingStructure` does not need its own Controller as it is a dynamic property generated for a single `Employee`.
+  * An `Employee` can have more than one `Compensation`. Because of this, we implemented the READ function as a search with an optional `employeeId` parameter.
+  * `Compensation` records are unique for a given `employee` and `effectiveDate` combination. The endpoint will return an error if a second create is attempted for an existing `employee` / `effectiveDate` combination.
+
+
 # Coding Challenge
 ## What's Provided
 A simple [Spring Boot](https://projects.spring.io/spring-boot/) web application has been created and bootstrapped 
